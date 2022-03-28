@@ -1,4 +1,6 @@
-﻿namespace DotnetSandbox
+﻿using System.Collections.Generic;
+
+namespace DotnetSandbox
 {
     public class Report
     {
@@ -15,6 +17,20 @@
             var column4 = new ReportColumn("4");
             var column5 = new ReportColumn("5");
             var column6 = new ReportColumn("6");
+
+            var rows = new List<ReportRow>
+            {
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("dsbhvbsdjk"),
+            };
         }
     }
 
@@ -24,5 +40,12 @@
         {
             
         }
+        
+        
+    }
+
+    public class ReportRow
+    {
+        public ReportRow(string content){}
     }
 }
