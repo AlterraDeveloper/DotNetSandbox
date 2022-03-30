@@ -17,7 +17,10 @@ namespace DotnetSandbox
             var column4 = new ReportColumn("4");
             var column5 = new ReportColumn("5");
             var column6 = new ReportColumn("6");
+        }
 
+        public void Fill()
+        {
             var rows = new List<ReportRow>
             {
                 new ReportRow("dsbhvbsdjk"),
@@ -40,8 +43,6 @@ namespace DotnetSandbox
         {
             
         }
-        
-        
     }
 
     public class ReportRow
