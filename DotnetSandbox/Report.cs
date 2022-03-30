@@ -19,7 +19,7 @@ namespace DotnetSandbox
             var column6 = new ReportColumn("6");
         }
 
-        public bool Fill()
+        private ReportResult AddRows()
         {
             var rows = new List<ReportRow>
             {
