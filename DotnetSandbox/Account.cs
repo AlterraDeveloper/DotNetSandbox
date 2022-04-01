@@ -1,5 +1,8 @@
 ﻿namespace DotnetSandbox
 {
+    /// <summary>
+    /// Модель счета
+    /// </summary>
     public class Account
     {
         public int CustomerID { get; set; }
