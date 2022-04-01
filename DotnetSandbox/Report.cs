@@ -23,16 +23,10 @@ namespace DotnetSandbox
         {
             var rows = new List<ReportRow>
             {
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
-                new ReportRow("dsbhvbsdjk"),
+                new ReportRow("Row #1"),
+                new ReportRow("Row #2"),
+                new ReportRow("Row #3"),
+                new ReportRow("Row #4"),
             };
         }
     }
