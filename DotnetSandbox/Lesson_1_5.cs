@@ -289,8 +289,8 @@ namespace DotnetSandbox
             // hashtable.Add("MasterCard", "Мастер карт");
             // hashtable.Add("Visa", "Виза");
 
-            var visaRuName = hashtable["Visa"];
-            Console.WriteLine(hashtable["Visa"]);
+            // var visaRuName = hashtable["Visa"];
+            // Console.WriteLine(hashtable["Visa"]);
             
             var currencies = new Dictionary<string, List<int>>();
             
