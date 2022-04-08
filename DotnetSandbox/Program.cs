@@ -50,13 +50,21 @@ namespace DotnetSandbox
 
         static void Main(string[] args)
         {
-
+            
             var me = new PrivateCustomer
             {
                 CustomerID = 1,
                 CustomerName = "Eugene",
                 Surname = "Kiselev"
             };
+            var meToo = new PrivateCustomer("00101199200789", "Ergeshov Ernis");
+            
+            var meToo2 = new LegalCustomer();
+
+            Console.WriteLine(meToo.IdentificationNumber ?? "NONE");
+            Console.WriteLine(meToo2.IdentificationNumber ?? "NONE");
+            
+            
             // var account = new Account();
             // var myUsdAccount = new Account(me.CustomerID, "5050550055050", (int) Currencies.USD);
             // var myEurAccount = new Account(me.CustomerID, "5050550055051", (int) Currencies.EUR, 200);
@@ -70,9 +78,8 @@ namespace DotnetSandbox
             Console.WriteLine(myEurAccount);
             Console.WriteLine(myRubAccount);
             Console.WriteLine(myKztAccount);
-            // Console.WriteLine(myEurAccount);
 
             Console.ReadKey();
         }
     }
-}
+};

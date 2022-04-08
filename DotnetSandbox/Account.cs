@@ -30,22 +30,9 @@ namespace DotnetSandbox
             AccountNo = accountNo;
             CurrencyID = currencyID;
             Balance = currentBalance;
-
         }
 
         public int CustomerID { get; private set; }
-        private int _customerID { get; set; }
-
-        public int GetCustomerID()
-        {
-            return _customerID;
-        }
-        
-        private void SetCustomerID(int value)
-        {
-            _customerID = value;
-        }
-        
 
         public string AccountNo { get; set; }
 
