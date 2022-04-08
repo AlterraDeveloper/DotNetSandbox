@@ -5,8 +5,6 @@
 
         public void CallCustomer()
         {
-            var legal = new LegalCustomer();
-            legal.CompanyName = "";
         }
     }
 }

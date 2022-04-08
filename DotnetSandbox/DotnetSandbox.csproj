@@ -57,5 +57,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetSandbox.Common\DotnetSandbox.Common.csproj">
+      <Project>{377d1833-b6e6-412b-96cb-4451ac4042a4}</Project>
+      <Name>DotnetSandbox.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,14 +38,13 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="BaseSecurityProvider.cs" />
         <Compile Include="Class1.cs" />
+        <Compile Include="ISecurityProvider.cs" />
+        <Compile Include="ISecurityValidator.cs" />
+        <Compile Include="OnlineBankContext.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\DotnetSandbox\DotnetSandbox.csproj">
-        <Project>{ede4220d-5627-4864-8cf1-7a8fb2efbb39}</Project>
-        <Name>DotnetSandbox</Name>
-      </ProjectReference>
+        <Compile Include="RegexSandbox.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

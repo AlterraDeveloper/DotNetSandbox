@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Permissions;
 using System.Text.RegularExpressions;
 
 namespace DotnetSandbox
@@ -12,7 +11,8 @@ namespace DotnetSandbox
         }
         public Customer(string inn)
         {
-            if (ValidateIdentificationNumber(inn)) IdentificationNumber = inn;
+            // if (ValidateIdentificationNumber(inn)) 
+                IdentificationNumber = inn;
             Console.WriteLine("construct Customer");
         }
         
@@ -29,18 +29,30 @@ namespace DotnetSandbox
         {
             return identificationNumber.Length == InnLength;
         }
+
+        public override bool Equals(object obj)
+        {
+            var anotherCustomer = obj as Customer;
+            if (anotherCustomer is null) return false;
+            return this.IdentificationNumber == anotherCustomer.IdentificationNumber;
+        }
+
+        public override int GetHashCode()
+        {
+            return IdentificationNumber.GetHashCode();
+        }
     }
 
-    class CustomerKG : Customer
-    {
-        public string INN { get; set; }
-    }
-
-    class CustomerTJ : Customer
-    {
-        public string SIN { get; set; }
-        public string IIIIN { get; set; }
-    }
+    // class CustomerKG : Customer
+    // {
+    //     public string INN { get; set; }
+    // }
+    //
+    // class CustomerTJ : Customer
+    // {
+    //     public string SIN { get; set; }
+    //     public string IIIIN { get; set; }
+    // }
 
     internal class PrivateCustomer : Customer
     {
