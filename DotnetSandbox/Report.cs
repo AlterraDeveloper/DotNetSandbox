@@ -1,12 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DotnetSandbox
 {
     public class Report
     {
-        public Report()
+
+        private int _pageCount;
+        private int _itemsPerPage;
+        private DateTime _reportDate;
+        
+        public Report(List<string> parameters)
         {
-            
+            SetParameters(parameters);
+            SetTitle();
+        }
+
+        private void SetTitle()
+        {
+            Console.WriteLine(_reportDate);
+        }
+
+        private void SetParameters(List<string> parameters)
+        {
+            _pageCount = int.Parse(parameters[0]);
+            _itemsPerPage = int.Parse(parameters[0]);
         }
 
         public void Build()

@@ -17,7 +17,7 @@ namespace DotnetSandbox
         }
         
         protected const int InnLength = 14;
-        
+
         public int CustomerID { get; set; }
 
         public string IdentificationNumber { get; set; }

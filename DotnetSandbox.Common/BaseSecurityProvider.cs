@@ -11,7 +11,6 @@
         
         public void Approve(ISecurityValidator validator)
         {
-            throw new System.NotImplementedException();
         }
     }
 

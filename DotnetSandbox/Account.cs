@@ -14,14 +14,14 @@ namespace DotnetSandbox
             {"40333", 0},
         };
 
-        public static Account OpenAccount(int customerID, string balanceGroup, int currencyID)
+        public static Account OpenAccount(int customerID, string balanceGroup, int currencyID, decimal startBalance = 0)
         {
             if (!_balanceGroupsCount.ContainsKey(balanceGroup)) return null;
             string accountNo;
 
             accountNo = $"{balanceGroup}{(++_balanceGroupsCount[balanceGroup]).ToString().PadLeft(11, '0')}";
             
-            return new Account(customerID, accountNo, currencyID, 0);
+            return new Account(customerID, accountNo, currencyID, startBalance);
         }
         
         private Account(int customerID, string accountNo, int currencyID, decimal currentBalance)
