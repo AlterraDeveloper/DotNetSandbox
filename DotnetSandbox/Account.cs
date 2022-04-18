@@ -20,7 +20,7 @@ namespace DotnetSandbox
             string accountNo;
 
             accountNo = $"{balanceGroup}{(++_balanceGroupsCount[balanceGroup]).ToString().PadLeft(11, '0')}";
-            
+            Logger.LogInfo($"Создание нового счета {accountNo}");
             return new Account(customerID, accountNo, currencyID, startBalance);
         }
         
@@ -32,7 +32,7 @@ namespace DotnetSandbox
             Balance = currentBalance;
         }
 
-        public int CustomerID { get; private set; }
+        public int CustomerID { get; set; }
 
         public string AccountNo { get; set; }
 

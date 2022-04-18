@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c">
+      <HintPath>..\packages\NLog.4.7.15\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,10 +54,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountDto.cs" />
+    <Compile Include="AccountMapper.cs" />
+    <Compile Include="CurrenciesHelper.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="Customer.Methods.cs" />
     <Compile Include="FinalizeDay.cs" />
     <Compile Include="Lesson_1_5.cs" />
     <Compile Include="Lesson_6.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotnetSandbox.Common\DotnetSandbox.Common.csproj">

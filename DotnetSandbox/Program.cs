@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DotnetSandbox.Common;
 
 namespace DotnetSandbox
@@ -18,7 +19,7 @@ namespace DotnetSandbox
         MasterCard
     }
 
-    enum Currencies
+    public enum Currencies
     {
         RUB = 643,
         KZT = 398,
@@ -85,15 +86,7 @@ namespace DotnetSandbox
             return errors.Count == 0;
         }
 
-        private static string GetCurrencySymbol(Currencies currency)
-        {
-            return currency switch
-            {
-                Currencies.USD => "$",
-                Currencies.RUB => "₽",
-                _ => "c"
-            };
-        }
+      
 
         static bool boolFunc()
         {
@@ -105,12 +98,33 @@ namespace DotnetSandbox
         static string ElcardIntegration() => "I'm Elcard card processing in IPC";
         static string MasterCardIntegration() => "I'm Master card processing";
 
+        static bool pickForeignAccounts(Account account)
+        {
+            var foreignCurrencies = new [] {Currencies.EUR, Currencies.USD};
+            return foreignCurrencies.Contains((Currencies)account.CurrencyID);
+        }
+
+        static void PrintNumber(int maxNumber, int startNumber = 0)
+        {
+            if (startNumber >= maxNumber) return;
+            Console.WriteLine(startNumber);
+            PrintNumber(maxNumber, ++startNumber);
+        }
+
         static void Main(string[] args)
         {
             var me = new PrivateCustomer
             {
                 CustomerID = 1,
-                Surname = "Kiselev"
+                Surname = "Kiselev",
+                IdentificationNumber = "121358989198",
+                CustomerName = "Evgenii",
+                Address = new CustomerAddress
+                {
+                    CityName = "Bishkek",
+                    CountryName = "KG",
+                    AddressDetails = new CustomerAddressDetails()
+                }
             };
             //
             // var meToo = new PrivateCustomer("00101199200789", "Ergeshov Ernis");
@@ -136,11 +150,19 @@ namespace DotnetSandbox
             // var myUsdAccount = new Account(me.CustomerID, "5050550055050", (int) Currencies.USD);
             // var myEurAccount = new Account(me.CustomerID, "5050550055051", (int) Currencies.EUR, 200);
 
-            var myUsdAccount = Account.OpenAccount(currencyID:(int) Currencies.USD, balanceGroup: "10005", customerID: me.CustomerID);
-            // var myEurAccount = Account.OpenAccount(me.CustomerID, "10005", (int) Currencies.EUR);
-            // var myRubAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.RUB);
-            // var myKztAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.KZT);
-
+            // var myUsdAccount = Account.OpenAccount(currencyID:(int) Currencies.USD, balanceGroup: "10005", customerID: me.CustomerID, startBalance: 100);
+            // var myEurAccount = Account.OpenAccount(me.CustomerID, "10005", (int) Currencies.EUR, 100);
+            // var myRubAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.RUB, 100);
+            // var myKztAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.KZT, 100);
+            //
+            // var currenciesRates = new Dictionary<Currencies, double>
+            // {
+            //     {Currencies.EUR, 110},
+            //     {Currencies.USD, 85},
+            //     {Currencies.RUB, 1.5},
+            //     {Currencies.KZT, 0.25}
+            // };
+            //
             // Console.WriteLine(myUsdAccount);
             // Console.WriteLine(myEurAccount);
             // Console.WriteLine(myRubAccount);
@@ -178,7 +200,7 @@ namespace DotnetSandbox
             // ChangeMode();
             // PrintInfo();
 
-            int number = 100;
+            // int number = 100;
             // object number2 = 100;
             // ModifyPrimitive(ref number);
             // ModifyReference(number2);
@@ -198,19 +220,75 @@ namespace DotnetSandbox
             //     .WithProtocol(NetworkProtocol.HTTP)
             //     .WithBaseAddress("www.socfond.kg/public/api");
 
-            var numberAsText = "1000";
+            // var numberAsText = "1000";
+            //
+            // Console.WriteLine(int.TryParse(numberAsText, out var numberAfterParse));
+            // Console.WriteLine(numberAfterParse);
+            //
+            // var validationREsult = CheckIsValidCustomer(me, out var errors);
+            // if (!validationREsult)
+            // {
+            //     foreach (var error in errors)
+            //     {
+            //         Console.WriteLine(error);
+            //     }
+            // }
             
-            Console.WriteLine(int.TryParse(numberAsText, out var numberAfterParse));
-            Console.WriteLine(numberAfterParse);
+            
+            // var dict = new Dictionary<int, Account[]>();
+            // dict.Add(55, new []{ Account.OpenAccount(55, "10102", 417)});
+            // dict.Add(56, new []{ Account.OpenAccount(55, "10102", 417)});
+            // dict.Add(57, new []{ Account.OpenAccount(55, "10102", 417)});
+            // dict.Add(58, new []{ Account.OpenAccount(55, "10102", 417)});
+            //
+            // if (dict.TryGetValue(me.CustomerID, out var myAccounts))
+            // {
+            //     Console.WriteLine(myAccounts);
+            // }
+            // else
+            // {
+            //     Console.WriteLine($"Customer with ID {me.CustomerID} not found");
+            // }
+            
+            // me.LinkAccounts(myUsdAccount, myEurAccount, myKztAccount, myRubAccount);
+            //
+            // me.GetTotalBalance(pickForeignAccounts, currenciesRates);
+            
+            
+            
+            //Action<Customer> => function void ...(Customer customer)
+            //Predicate<Customer, int> => function bool ...(Customer c, int number)
+            //Func<Customer, Account, double> => function double ...(Customer c, Account a)
 
-            var validationREsult = CheckIsValidCustomer(me, out var errors);
-            if (!validationREsult)
+            // Console.WriteLine("Total balance: {0}", me.GetTotalBalance(pickForeignAccounts, currenciesRates));
+            // Console.WriteLine("Total balance: {0}", me.GetTotalBalance(x => 
+            //     x.CurrencyID == (int)Currencies.RUB || x.CurrencyID == (int) Currencies.KZT, currenciesRates));
+            // Console.WriteLine("Total balance: {0}", me.GetTotalBalance(x => true, currenciesRates));
+            //
+            // var myUsdaccountDto = AccountDto.MapFromAccount(AccountMapper.Map, myUsdAccount, me);
+
+            // Console.WriteLine(myUsdaccountDto);
+
+            // for (int i = 0; i < 5; i++)
+            // {
+            //     Console.WriteLine(i);
+            // }
+            //
+            // PrintNumber(5);
+
+            try
             {
-                foreach (var error in errors)
-                {
-                    Console.WriteLine(error);
-                }
+                Customer notMe = null;
+                var inn = notMe.IdentificationNumber.PadRight(100);
             }
+            catch (NullReferenceException e)
+            {
+                Logger.LogError(e.Message);
+            }
+
+            me.Surname = "Ivanov";
+            Logger.LogInfo(LogHelper.Dump(me, null));                            
+
 
             Console.ReadKey();
         }
