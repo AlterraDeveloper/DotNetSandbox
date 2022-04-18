@@ -62,8 +62,6 @@
     <Compile Include="FinalizeDay.cs" />
     <Compile Include="Lesson_1_5.cs" />
     <Compile Include="Lesson_6.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

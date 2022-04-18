@@ -1,4 +1,5 @@
-﻿using System.Security.Permissions;
+﻿using System;
+using System.Security.Permissions;
 using NLog;
 
 namespace DotnetSandbox
@@ -20,6 +21,11 @@ namespace DotnetSandbox
         public static void LogError(string message)
         {
             _logger.Log(LogLevel.Error, message);
+        }
+        
+        public static void LogError(Exception exception)
+        {
+            _logger.Log(LogLevel.Error, exception.Message);
         }
     }
 }

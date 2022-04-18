@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using DotnetSandbox.Common;
 
 namespace DotnetSandbox
@@ -113,19 +114,24 @@ namespace DotnetSandbox
 
         static void Main(string[] args)
         {
-            var me = new PrivateCustomer
-            {
-                CustomerID = 1,
-                Surname = "Kiselev",
-                IdentificationNumber = "121358989198",
-                CustomerName = "Evgenii",
-                Address = new CustomerAddress
-                {
-                    CityName = "Bishkek",
-                    CountryName = "KG",
-                    AddressDetails = new CustomerAddressDetails()
-                }
-            };
+            var me = new PrivateCustomer("121358989198", "EVGENII", "kiselev");
+            // {
+            //     CustomerID = 1,
+            //     Surname = "kiselev",
+            //     IdentificationNumber = "121358989198",
+            //     CustomerName = "EVGENII",
+            //     Address = new CustomerAddress
+            //     {
+            //         CityName = "Bishkek",
+            //         CountryName = "KG",
+            //         AddressDetails = new CustomerAddressDetails()
+            //     }
+            // };
+            // var dateNow = DateTime.Now;
+            // Console.WriteLine(me.Surname);
+            // Console.WriteLine(me.CustomerName);
+            // Console.WriteLine(dateNow.GetQuarterNumber());
+            
             //
             // var meToo = new PrivateCustomer("00101199200789", "Ergeshov Ernis");
             // var meToo2 = new PrivateCustomer("00101199200789", "Kiselev Evgenii");
@@ -150,10 +156,24 @@ namespace DotnetSandbox
             // var myUsdAccount = new Account(me.CustomerID, "5050550055050", (int) Currencies.USD);
             // var myEurAccount = new Account(me.CustomerID, "5050550055051", (int) Currencies.EUR, 200);
 
-            // var myUsdAccount = Account.OpenAccount(currencyID:(int) Currencies.USD, balanceGroup: "10005", customerID: me.CustomerID, startBalance: 100);
-            // var myEurAccount = Account.OpenAccount(me.CustomerID, "10005", (int) Currencies.EUR, 100);
-            // var myRubAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.RUB, 100);
-            // var myKztAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.KZT, 100);
+            try
+            {
+                var myUsdAccount = Account.OpenAccount(currencyID:(int) Currencies.USD, balanceGroup: "8948498", customerID: me.CustomerID, startBalance: 100);
+                var myEurAccount = Account.OpenAccount(me.CustomerID, "10005", (int) Currencies.EUR, 100);
+                var myRubAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.RUB, 100);
+                var myKztAccount = Account.OpenAccount(me.CustomerID, "22111", (int) Currencies.KZT, 100);
+            }
+            catch (OnlineBankException e)
+            {
+                Console.WriteLine("1 : {0}\n\n", e.Message);
+                // Console.WriteLine("2 : {0}\n\n", e.Source);
+                Console.WriteLine("3 : {0}\n\n", e.InnerException?.Message);
+                Console.WriteLine("4 : {0}\n\n", e.StackTrace);
+                // Console.WriteLine("5 : {0}\n\n", e.TargetSite);
+                //throw;
+            }
+
+
             //
             // var currenciesRates = new Dictionary<Currencies, double>
             // {
@@ -278,16 +298,50 @@ namespace DotnetSandbox
 
             try
             {
-                Customer notMe = null;
-                var inn = notMe.IdentificationNumber.PadRight(100);
+                Customer notMe = me;
+                var inn = notMe.IdentificationNumber.PadRight(-2);
             }
+           
             catch (NullReferenceException e)
             {
                 Logger.LogError(e.Message);
             }
-
+            catch (ArgumentException e)
+            {
+                Logger.LogDebug(e.Message);
+            }
+            catch(Exception e)
+            {
+                
+            }
             me.Surname = "Ivanov";
-            Logger.LogInfo(LogHelper.Dump(me, null));                            
+            Logger.LogInfo(LogHelper.Dump(me, null));
+            
+            var reportResult1 = new ReportResult
+            {
+                IsSuccess = true,
+                Files = new List<string>
+                {
+                    "SwiftApplication.txt",
+                    "SwiftApplication2.txt",
+                },
+            };
+
+            var reportResult2 = new ReportResult
+            {
+                IsSuccess = false,
+                Errors = new List<string>
+                {
+                    "error 1",
+                    "error 2"
+                },
+            };
+
+            var totalReportResult = reportResult1 + reportResult2;
+
+            Console.WriteLine(totalReportResult.IsSuccess);
+            totalReportResult.Files.ForEach(f => Console.WriteLine(f));
+            totalReportResult.Errors.ForEach(e => Console.WriteLine(e));
 
 
             Console.ReadKey();

@@ -32,19 +32,40 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c">
+          <HintPath>..\packages\NLog.4.7.15\lib\net45\NLog.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
+        <Reference Include="System.Configuration" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.IO.Compression" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.ServiceModel" />
+        <Reference Include="System.Transactions" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaseSecurityProvider.cs" />
         <Compile Include="Class1.cs" />
+        <Compile Include="ExecuteManger.cs" />
+        <Compile Include="ExecuteResult.cs" />
+        <Compile Include="IManager.cs" />
         <Compile Include="ISecurityProvider.cs" />
         <Compile Include="ISecurityValidator.cs" />
+        <Compile Include="Logger.cs" />
+        <Compile Include="LogHelper.cs" />
         <Compile Include="OnlineBankContext.cs" />
+        <Compile Include="OnlineBankException.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="RegexSandbox.cs" />
+        <Compile Include="ReportResult.cs" />
+        <Compile Include="StringFunctions.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using DotnetSandbox.Common;
 
 namespace DotnetSandbox
 {
@@ -42,12 +43,12 @@ namespace DotnetSandbox
         {
             get
             {
-                return _surname;
+                return _surname.Capitalize();
             }
             
             set
             {
-                _surname = value;
+                _surname = value.Capitalize();
             }
         }
         
@@ -59,9 +60,10 @@ namespace DotnetSandbox
             Console.WriteLine("construct PrivateCustomer");
         }
 
-        public PrivateCustomer(string inn, string name) : base(inn)
+        public PrivateCustomer(string inn, string name, string surname) : base(inn)
         {
-            CustomerName = name;
+            CustomerName = name.Capitalize();
+            Surname = surname;
         }
 
         protected override bool ValidateIdentificationNumber(string identificationNumber)
