@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetSandbox", "DotnetSandbox\DotnetSandbox.csproj", "{EDE4220D-5627-4864-8CF1-7A8FB2EFBB39}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetSandbox.Common", "DotnetSandbox.Common\DotnetSandbox.Common.csproj", "{377D1833-B6E6-412B-96CB-4451AC4042A4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.MVC", "OnlineBankDemo.MVC\OnlineBankDemo.MVC.csproj", "{8B8854F9-9720-4A4E-91C7-90E6226BE53F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{68FF01BE-0007-4FC6-892F-73C1ACD3BE28}"
@@ -14,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.DataAccessLayer.Common", "OnlineBankDemo.DataAccessLayer.Common\OnlineBankDemo.DataAccessLayer.Common.csproj", "{7300AAAB-5962-4DD5-A2C6-4D56AF08489E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{00EC1F4C-E623-4548-8605-F25633949FF9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.Servive.GeneralBook", "OnlineBankDemo.Servive.GeneralBook\OnlineBankDemo.Servive.GeneralBook.csproj", "{509A3A02-CEBA-4469-8648-2412A08D9860}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModel", "DomainModel", "{6E2A0DB3-D7E7-48BA-A40B-165A4956C914}"
 EndProject
@@ -25,20 +19,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.Service.Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.DataAccessLayer.GeneralBook", "OnlineBankDemo.DataAccessLayer.GeneralBook\OnlineBankDemo.DataAccessLayer.GeneralBook.csproj", "{95D07DFB-8593-417B-943E-43F3E59B255E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBankDemo.Service.GeneralBook", "OnlineBankDemo.Service.GeneralBook\OnlineBankDemo.Service.GeneralBook.csproj", "{E0733380-EAAD-4167-9D3A-9FCC88FA773B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EDE4220D-5627-4864-8CF1-7A8FB2EFBB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDE4220D-5627-4864-8CF1-7A8FB2EFBB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDE4220D-5627-4864-8CF1-7A8FB2EFBB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDE4220D-5627-4864-8CF1-7A8FB2EFBB39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{377D1833-B6E6-412B-96CB-4451AC4042A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{377D1833-B6E6-412B-96CB-4451AC4042A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{377D1833-B6E6-412B-96CB-4451AC4042A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{377D1833-B6E6-412B-96CB-4451AC4042A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B8854F9-9720-4A4E-91C7-90E6226BE53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B8854F9-9720-4A4E-91C7-90E6226BE53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B8854F9-9720-4A4E-91C7-90E6226BE53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +35,6 @@ Global
 		{7300AAAB-5962-4DD5-A2C6-4D56AF08489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7300AAAB-5962-4DD5-A2C6-4D56AF08489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7300AAAB-5962-4DD5-A2C6-4D56AF08489E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{509A3A02-CEBA-4469-8648-2412A08D9860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{509A3A02-CEBA-4469-8648-2412A08D9860}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{509A3A02-CEBA-4469-8648-2412A08D9860}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{509A3A02-CEBA-4469-8648-2412A08D9860}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EED2B8DC-C935-413B-AF38-B592ADBC0887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EED2B8DC-C935-413B-AF38-B592ADBC0887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED2B8DC-C935-413B-AF38-B592ADBC0887}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,16 +47,20 @@ Global
 		{95D07DFB-8593-417B-943E-43F3E59B255E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95D07DFB-8593-417B-943E-43F3E59B255E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95D07DFB-8593-417B-943E-43F3E59B255E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0733380-EAAD-4167-9D3A-9FCC88FA773B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0733380-EAAD-4167-9D3A-9FCC88FA773B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0733380-EAAD-4167-9D3A-9FCC88FA773B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0733380-EAAD-4167-9D3A-9FCC88FA773B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7300AAAB-5962-4DD5-A2C6-4D56AF08489E} = {68FF01BE-0007-4FC6-892F-73C1ACD3BE28}
-		{509A3A02-CEBA-4469-8648-2412A08D9860} = {00EC1F4C-E623-4548-8605-F25633949FF9}
 		{EED2B8DC-C935-413B-AF38-B592ADBC0887} = {6E2A0DB3-D7E7-48BA-A40B-165A4956C914}
 		{5BA18F66-4BE7-4870-BC7A-5A176CF2ED5D} = {00EC1F4C-E623-4548-8605-F25633949FF9}
 		{95D07DFB-8593-417B-943E-43F3E59B255E} = {68FF01BE-0007-4FC6-892F-73C1ACD3BE28}
+		{E0733380-EAAD-4167-9D3A-9FCC88FA773B} = {00EC1F4C-E623-4548-8605-F25633949FF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4987ACC3-2F93-4119-A3CD-9D73E6CB8C45}
