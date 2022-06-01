@@ -83,6 +83,10 @@
       <Project>{7300aaab-5962-4dd5-a2c6-4d56af08489e}</Project>
       <Name>OnlineBankDemo.DataAccessLayer.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OnlineBankDemo.Security.Common\OnlineBankDemo.Security.Common.csproj">
+      <Project>{0e68ab01-b028-4733-a744-b6c8c8d25ba5}</Project>
+      <Name>OnlineBankDemo.Security.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

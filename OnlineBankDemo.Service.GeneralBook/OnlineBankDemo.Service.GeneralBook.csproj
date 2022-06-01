@@ -279,6 +279,14 @@
       <Project>{eed2b8dc-c935-413b-af38-b592adbc0887}</Project>
       <Name>OnlineBankDemo.DomainModel.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OnlineBankDemo.Security.Common\OnlineBankDemo.Security.Common.csproj">
+      <Project>{0e68ab01-b028-4733-a744-b6c8c8d25ba5}</Project>
+      <Name>OnlineBankDemo.Security.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineBankDemo.Security.GeneralBook\OnlineBankDemo.Security.GeneralBook.csproj">
+      <Project>{5e2417a7-433b-4a55-a12a-d75da760eb6c}</Project>
+      <Name>OnlineBankDemo.Security.GeneralBook</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnlineBankDemo.Service.Common\OnlineBankDemo.Service.Common.csproj">
       <Project>{5ba18f66-4be7-4870-bc7a-5a176cf2ed5d}</Project>
       <Name>OnlineBankDemo.Service.Common</Name>

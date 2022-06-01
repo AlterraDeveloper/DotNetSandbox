@@ -1,4 +1,5 @@
 ﻿using OnlineBankDemo.DataAccessLayer.Common;
+using OnlineBankDemo.Security.Common;
 using Unity;
 
 namespace OnlineBankDemo.Service.Common
@@ -12,6 +13,7 @@ namespace OnlineBankDemo.Service.Common
                 .RegisterType<IUnitOfWork, CommonUnitOfWork>()
                 .RegisterType<IUnitOfWork<CommonEntityContext>, CommonUnitOfWork>()
                 .RegisterType<IReadOnlyUnitOfWork<CommonEntityContext>, CommonReadOnlyUnitOfWork>()
+                .RegisterType<ISecurityProviderValidator, OpenAccessSecurityProviderValidator>()
                 ;
         }
     }
